@@ -22,8 +22,14 @@ class _OrganizationsScreenState extends State<OrganizationsScreen>
   }
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+
+    super.initState();
     if (!_isLoading) organizationPresenter.loadOrganization(context);
+  }
+  @override
+  Widget build(BuildContext context) {
+
     SizeConfig().init(context);
     return Scaffold(
       body: !_isLoading

@@ -23,9 +23,14 @@ class _ReposScreenState extends State<ReposScreen> implements ReposContract {
     presenter=ReposPresenter(this);
   }
   @override
+  void initState() {
+    super.initState();
+    if (!_isLoading) presenter.loadRepos(context, widget.login);
+  }
+  @override
   Widget build(BuildContext context) {
     print("Login is:${widget.login}");
-    if (!_isLoading) presenter.loadRepos(context, widget.login);
+
     SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
